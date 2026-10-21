@@ -1,0 +1,1894 @@
+[
+  {
+    "id": "track-ai",
+    "kind": "TRACK",
+    "title": "AI-enabled DevOps",
+    "parentId": null,
+    "summary": "Bring AI into your existing engineering workflow, one practical concept at a time.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "track-fde",
+    "kind": "TRACK",
+    "title": "Forward Deployed Engineer",
+    "parentId": null,
+    "summary": "Connect AI engineering with customer problems and production delivery.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "fundamentals",
+    "kind": "CONCEPT",
+    "title": "AI Fundamentals",
+    "parentId": null,
+    "summary": "Build a mental model of AI, language models and their limits.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [
+      "track-ai",
+      "track-fde"
+    ],
+    "tags": [
+      "Understand the building blocks"
+    ],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "models",
+    "kind": "TOPIC",
+    "title": "Language models in context",
+    "parentId": "fundamentals",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "models-1",
+    "kind": "LESSON",
+    "title": "What a language model does",
+    "parentId": "models",
+    "summary": "A short introduction to what a language model does, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Foundations",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "models-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "models-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "models-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cWhat a language model does\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "models-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "models-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "models-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "models-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "models-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "models-2",
+    "kind": "LESSON",
+    "title": "Tokens and context windows",
+    "parentId": "models",
+    "summary": "A short introduction to tokens and context windows, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Foundations",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "models-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "models-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "models-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cTokens and context windows\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "models-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "models-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "models-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "models-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "models-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "prompting",
+    "kind": "TOPIC",
+    "title": "Working with prompts",
+    "parentId": "fundamentals",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "prompting-1",
+    "kind": "LESSON",
+    "title": "Writing a clear instruction",
+    "parentId": "prompting",
+    "summary": "A short introduction to writing a clear instruction, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Foundations",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "prompting-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "prompting-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "prompting-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cWriting a clear instruction\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "prompting-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "prompting-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "prompting-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "prompting-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "prompting-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "prompting-2",
+    "kind": "LESSON",
+    "title": "Evaluating a model response",
+    "parentId": "prompting",
+    "summary": "A short introduction to evaluating a model response, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Foundations",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "prompting-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "prompting-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "prompting-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cEvaluating a model response\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "prompting-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "prompting-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "prompting-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "prompting-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "prompting-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "devops",
+    "kind": "CONCEPT",
+    "title": "AI-Assisted DevOps",
+    "parentId": null,
+    "summary": "Connect familiar workflows to useful AI patterns.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 0,
+    "trackIds": [
+      "track-ai",
+      "track-fde"
+    ],
+    "tags": [
+      "Apply AI to your workflow"
+    ],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "operations",
+    "kind": "TOPIC",
+    "title": "Engineering workflows",
+    "parentId": "devops",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "operations-1",
+    "kind": "LESSON",
+    "title": "Explaining a deployment failure",
+    "parentId": "operations",
+    "summary": "A short introduction to explaining a deployment failure, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "operations-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "operations-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "operations-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cExplaining a deployment failure\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "operations-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "operations-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "operations-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "operations-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "operations-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "operations-2",
+    "kind": "LESSON",
+    "title": "Reviewing an infrastructure change",
+    "parentId": "operations",
+    "summary": "A short introduction to reviewing an infrastructure change, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "operations-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "operations-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "operations-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cReviewing an infrastructure change\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "operations-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "operations-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "operations-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "operations-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "operations-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "guardrails",
+    "kind": "TOPIC",
+    "title": "Safe use of AI",
+    "parentId": "devops",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "guardrails-1",
+    "kind": "LESSON",
+    "title": "Protecting sensitive information",
+    "parentId": "guardrails",
+    "summary": "A short introduction to protecting sensitive information, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "guardrails-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "guardrails-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "guardrails-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cProtecting sensitive information\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "guardrails-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "guardrails-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "guardrails-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "guardrails-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "guardrails-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "guardrails-2",
+    "kind": "LESSON",
+    "title": "Keeping a human in the loop",
+    "parentId": "guardrails",
+    "summary": "A short introduction to keeping a human in the loop, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "guardrails-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "guardrails-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "guardrails-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cKeeping a human in the loop\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "guardrails-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "guardrails-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "guardrails-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "guardrails-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "guardrails-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "rag",
+    "kind": "CONCEPT",
+    "title": "Retrieval & RAG",
+    "parentId": null,
+    "summary": "Give a model useful context from your own knowledge.",
+    "status": "PUBLISHED",
+    "position": 2,
+    "minutes": 0,
+    "trackIds": [
+      "track-ai",
+      "track-fde"
+    ],
+    "tags": [
+      "Build with your knowledge"
+    ],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "chunking",
+    "kind": "TOPIC",
+    "title": "Preparing your documents",
+    "parentId": "rag",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "chunking-1",
+    "kind": "LESSON",
+    "title": "Splitting documents into chunks",
+    "parentId": "chunking",
+    "summary": "A short introduction to splitting documents into chunks, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "chunking-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "chunking-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "chunking-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cSplitting documents into chunks\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "chunking-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "chunking-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "chunking-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "chunking-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "chunking-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "chunking-2",
+    "kind": "LESSON",
+    "title": "Choosing chunk size and overlap",
+    "parentId": "chunking",
+    "summary": "A short introduction to choosing chunk size and overlap, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "chunking-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "chunking-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "chunking-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cChoosing chunk size and overlap\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "chunking-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "chunking-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "chunking-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "chunking-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "chunking-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "retrieval",
+    "kind": "TOPIC",
+    "title": "Finding useful context",
+    "parentId": "rag",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "retrieval-1",
+    "kind": "LESSON",
+    "title": "Embeddings and similarity",
+    "parentId": "retrieval",
+    "summary": "A short introduction to embeddings and similarity, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "retrieval-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "retrieval-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "retrieval-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cEmbeddings and similarity\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "retrieval-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "retrieval-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "retrieval-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "retrieval-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "retrieval-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "retrieval-2",
+    "kind": "LESSON",
+    "title": "Retrieval before generation",
+    "parentId": "retrieval",
+    "summary": "A short introduction to retrieval before generation, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "retrieval-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "retrieval-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "retrieval-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cRetrieval before generation\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "retrieval-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "retrieval-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "retrieval-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "retrieval-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "retrieval-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "agents",
+    "kind": "CONCEPT",
+    "title": "Agents & Tool Use",
+    "parentId": null,
+    "summary": "Understand how models work with tools and actions.",
+    "status": "PUBLISHED",
+    "position": 3,
+    "minutes": 0,
+    "trackIds": [
+      "track-ai",
+      "track-fde"
+    ],
+    "tags": [
+      "From answers to actions"
+    ],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "tools",
+    "kind": "TOPIC",
+    "title": "Connecting tools",
+    "parentId": "agents",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "tools-1",
+    "kind": "LESSON",
+    "title": "Defining a tool contract",
+    "parentId": "tools",
+    "summary": "A short introduction to defining a tool contract, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "tools-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "tools-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "tools-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cDefining a tool contract\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "tools-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "tools-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "tools-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "tools-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "tools-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "tools-2",
+    "kind": "LESSON",
+    "title": "Validating a tool response",
+    "parentId": "tools",
+    "summary": "A short introduction to validating a tool response, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "tools-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "tools-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "tools-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cValidating a tool response\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "tools-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "tools-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "tools-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "tools-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "tools-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "production",
+    "kind": "CONCEPT",
+    "title": "Production AI",
+    "parentId": null,
+    "summary": "Take an AI feature from a prototype to a reliable service.",
+    "status": "PUBLISHED",
+    "position": 4,
+    "minutes": 0,
+    "trackIds": [
+      "track-ai",
+      "track-fde"
+    ],
+    "tags": [
+      "Ship with confidence"
+    ],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "delivery",
+    "kind": "TOPIC",
+    "title": "Shipping AI systems",
+    "parentId": "production",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "delivery-1",
+    "kind": "LESSON",
+    "title": "Tracing an AI request",
+    "parentId": "delivery",
+    "summary": "A short introduction to tracing an AI request, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "delivery-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "delivery-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "delivery-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cTracing an AI request\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "delivery-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "delivery-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "delivery-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "delivery-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "delivery-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "delivery-2",
+    "kind": "LESSON",
+    "title": "Latency and cost trade-offs",
+    "parentId": "delivery",
+    "summary": "A short introduction to latency and cost trade-offs, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "delivery-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "delivery-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "delivery-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cLatency and cost trade-offs\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "delivery-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "delivery-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "delivery-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "delivery-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "delivery-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "fde",
+    "kind": "CONCEPT",
+    "title": "FDE Foundations",
+    "parentId": null,
+    "summary": "Turn customer needs into clear technical decisions.",
+    "status": "PUBLISHED",
+    "position": 5,
+    "minutes": 0,
+    "trackIds": [
+      "track-fde"
+    ],
+    "tags": [
+      "Work from the customer problem"
+    ],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "discovery",
+    "kind": "TOPIC",
+    "title": "Customer discovery",
+    "parentId": "fde",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "discovery-1",
+    "kind": "LESSON",
+    "title": "Framing the customer problem",
+    "parentId": "discovery",
+    "summary": "A short introduction to framing the customer problem, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "discovery-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "discovery-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "discovery-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cFraming the customer problem\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "discovery-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "discovery-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "discovery-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "discovery-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "discovery-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "discovery-2",
+    "kind": "LESSON",
+    "title": "Mapping a workflow",
+    "parentId": "discovery",
+    "summary": "A short introduction to mapping a workflow, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "discovery-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "discovery-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "discovery-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cMapping a workflow\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "discovery-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "discovery-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "discovery-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "discovery-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "discovery-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "solutions",
+    "kind": "CONCEPT",
+    "title": "Solution Delivery",
+    "parentId": null,
+    "summary": "Translate a problem into a useful, testable solution.",
+    "status": "PUBLISHED",
+    "position": 6,
+    "minutes": 0,
+    "trackIds": [
+      "track-fde"
+    ],
+    "tags": [
+      "Deliver a measurable outcome"
+    ],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "outcomes",
+    "kind": "TOPIC",
+    "title": "From prototype to value",
+    "parentId": "solutions",
+    "summary": "Explore the key ideas with short lessons and quick practice.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "outcomes-1",
+    "kind": "LESSON",
+    "title": "Scoping a first deployment",
+    "parentId": "outcomes",
+    "summary": "A short introduction to scoping a first deployment, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 5,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "outcomes-1a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "outcomes-1b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "outcomes-1c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cScoping a first deployment\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "outcomes-1d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "outcomes-1e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "outcomes-1f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "outcomes-1g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "outcomes-1h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "outcomes-2",
+    "kind": "LESSON",
+    "title": "Defining success with a customer",
+    "parentId": "outcomes",
+    "summary": "A short introduction to defining success with a customer, with a familiar DevOps perspective.",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 7,
+    "trackIds": [],
+    "tags": [
+      "Practical",
+      "Demo lesson"
+    ],
+    "blocks": [
+      {
+        "id": "outcomes-2a",
+        "type": "callout",
+        "title": "Demo learning material",
+        "text": "This is placeholder content for reviewing the learning experience. Your team will add the final learning material through the admin portal."
+      },
+      {
+        "id": "outcomes-2b",
+        "type": "heading",
+        "text": "Start with a familiar idea"
+      },
+      {
+        "id": "outcomes-2c",
+        "type": "paragraph",
+        "text": "This sample lesson introduces \u201cDefining success with a customer\u201d. Think about a workflow you already know: you receive an input, apply a set of steps, and check the output. The final lesson will connect this familiar pattern to the AI concept in practical terms."
+      },
+      {
+        "id": "outcomes-2d",
+        "type": "heading",
+        "text": "What you will explore"
+      },
+      {
+        "id": "outcomes-2e",
+        "type": "bullets",
+        "text": "The core idea in simple language\nHow it connects to an engineering workflow\nA small example and the trade-offs to consider"
+      },
+      {
+        "id": "outcomes-2f",
+        "type": "code",
+        "language": "text",
+        "title": "An example workflow",
+        "text": "Input \u2192 Prepare context \u2192 Apply the model \u2192 Check the result"
+      },
+      {
+        "id": "outcomes-2g",
+        "type": "paragraph",
+        "text": "Pause and consider where this idea might fit in your own workflow. What would you want to measure before trusting the result? Use the flashcards to practice recalling the key points."
+      },
+      {
+        "id": "outcomes-2h",
+        "type": "link",
+        "title": "Example supporting resource",
+        "text": "Placeholder external link \u2014 replace in the admin portal.",
+        "url": "https://example.com"
+      }
+    ],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "draft-lesson",
+    "kind": "LESSON",
+    "title": "Evaluating retrieval quality",
+    "parentId": "retrieval",
+    "summary": "An unpublished lesson to demonstrate the editorial workflow.",
+    "status": "DRAFT",
+    "position": 39,
+    "minutes": 8,
+    "trackIds": [],
+    "tags": [],
+    "blocks": [],
+    "cardType": null,
+    "question": null,
+    "answer": null,
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "card-concept",
+    "kind": "FLASHCARD",
+    "title": "What connects the Learning Journey and Resource Library?",
+    "parentId": "models-1",
+    "summary": "",
+    "status": "PUBLISHED",
+    "position": 0,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [
+      "Demo card"
+    ],
+    "blocks": [],
+    "cardType": "concept",
+    "question": "What connects the Learning Journey and Resource Library?",
+    "answer": "They open the same canonical lesson. Completion and saved state stay consistent.",
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "card-scenario",
+    "kind": "FLASHCARD",
+    "title": "A colleague opens a lesson from search. Where should their progress appear?",
+    "parentId": "models-1",
+    "summary": "",
+    "status": "PUBLISHED",
+    "position": 1,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [
+      "Demo card"
+    ],
+    "blocks": [],
+    "cardType": "scenario",
+    "question": "A colleague opens a lesson from search. Where should their progress appear?",
+    "answer": "Their completion should update the same lesson in the guided journey.",
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "card-flaw",
+    "kind": "FLASHCARD",
+    "title": "Spot the flaw: each track stores a separate copy of the same lesson.",
+    "parentId": "models-1",
+    "summary": "",
+    "status": "PUBLISHED",
+    "position": 2,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [
+      "Demo card"
+    ],
+    "blocks": [],
+    "cardType": "flaw",
+    "question": "Spot the flaw: each track stores a separate copy of the same lesson.",
+    "answer": "Duplicated lessons can drift apart. A shared lesson ID keeps material and progress consistent.",
+    "options": [],
+    "correctOption": null,
+    "correctOrder": []
+  },
+  {
+    "id": "card-choice",
+    "kind": "FLASHCARD",
+    "title": "Which action should make a draft lesson visible to learners?",
+    "parentId": "models-1",
+    "summary": "",
+    "status": "PUBLISHED",
+    "position": 3,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [
+      "Demo card"
+    ],
+    "blocks": [],
+    "cardType": "choice",
+    "question": "Which action should make a draft lesson visible to learners?",
+    "answer": "Publishing makes it available, provided its parent hierarchy is also published.",
+    "options": [
+      "Saving a draft",
+      "Publishing the lesson",
+      "Renaming the image"
+    ],
+    "correctOption": 1,
+    "correctOrder": []
+  },
+  {
+    "id": "card-ordering",
+    "kind": "FLASHCARD",
+    "title": "Put the learning hierarchy in order.",
+    "parentId": "models-1",
+    "summary": "",
+    "status": "PUBLISHED",
+    "position": 4,
+    "minutes": 0,
+    "trackIds": [],
+    "tags": [
+      "Demo card"
+    ],
+    "blocks": [],
+    "cardType": "ordering",
+    "question": "Put the learning hierarchy in order.",
+    "answer": "Start with a track, then a main concept, a topic, and finally a lesson.",
+    "options": [
+      "Lesson",
+      "Track",
+      "Topic",
+      "Main concept"
+    ],
+    "correctOption": null,
+    "correctOrder": [
+      "Track",
+      "Main concept",
+      "Topic",
+      "Lesson"
+    ]
+  }
+]

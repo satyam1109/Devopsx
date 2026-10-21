@@ -1,0 +1,230 @@
+[
+  {
+    "id": "welcome",
+    "title": "Welcome / Public landing",
+    "width": 1440,
+    "height": 1100
+  },
+  {
+    "id": "onboarding",
+    "title": "Choose your learning goal",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "dashboard",
+    "title": "Learner overview",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "journey",
+    "title": "Seven-phase learning journey",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "journey-ai",
+    "title": "Learn AI track",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "library",
+    "title": "Resource library",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "library-saved",
+    "title": "Saved resources / example state",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "resource",
+    "title": "Resource explainer / LLM APIs",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "deck",
+    "title": "Deck detail / Calling an LLM",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-concept",
+    "title": "Flashcard / Concept",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-concept-answer",
+    "title": "Flashcard / Concept / Answer",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-scenario",
+    "title": "Flashcard / Scenario",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-scenario-answer",
+    "title": "Flashcard / Scenario / Answer",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-flaw",
+    "title": "Flashcard / Spot The Flaw",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-flaw-answer",
+    "title": "Flashcard / Spot The Flaw / Answer",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-ordering",
+    "title": "Flashcard / Ordering",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-ordering-answer",
+    "title": "Flashcard / Ordering / Answer",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-choice",
+    "title": "Flashcard / Choose The Approach",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-choice-answer",
+    "title": "Flashcard / Choose The Approach / Answer",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-concept-answer-dark",
+    "title": "Flashcard / Concept / Answer",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-choice-wrong",
+    "title": "Choice / incorrect feedback",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "session-complete",
+    "title": "Daily session complete",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "checkpoint",
+    "title": "Phase checkpoint / Progress",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "labs",
+    "title": "Hands-on labs / Coming soon",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "progress",
+    "title": "Learner progress",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "team",
+    "title": "Team overview / v1.1",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "settings",
+    "title": "Learning preferences",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "waitlist",
+    "title": "You\u2019re on the interest list.",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "report",
+    "title": "Help make this card clearer.",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "report-sent",
+    "title": "Thanks for improving the next review.",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "settings-saved",
+    "title": "A little nudge, at the right time.",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "settings-limit",
+    "title": "Set a pace you can keep.",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "mobile-review",
+    "title": "Mobile / daily review",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "id": "mobile-answer",
+    "title": "Mobile / daily review answer",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "id": "design-system",
+    "title": "Design system / Retainzy blue",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "placement",
+    "title": "Optional placement test",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "admin",
+    "title": "Admin / Content operations",
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "id": "card-ordering-wrong",
+    "title": "Ordering / incorrect feedback",
+    "width": 1440,
+    "height": 1000
+  }
+]

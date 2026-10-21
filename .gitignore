@@ -1,0 +1,16 @@
+node_modules/
+dist/
+tmp/
+.DS_Store
+
+backend/target/
+backend/data/
+.env
+.env.local
+
+# Local environment overrides and runtime logs
+.env.*
+!.env.example
+*.log
+.idea/
+*.iml

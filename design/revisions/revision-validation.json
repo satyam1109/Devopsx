@@ -1,0 +1,66 @@
+{
+  "requestedChanges": [
+    "Devopsx.si branding",
+    "Simple one-step onboarding",
+    "Overall and per-category percentage progress",
+    "No Team overview sidebar item",
+    "Minimal navigation and calmer screens",
+    "Canonical full-width lesson beside the sidebar"
+  ],
+  "journeyProgress": {
+    "FDE": {
+      "overallPercent": 35,
+      "categoryPercent": [
+        100,
+        100,
+        42,
+        0,
+        0,
+        0,
+        0
+      ],
+      "barCount": 8
+    },
+    "LearnAI": {
+      "overallPercent": 40,
+      "categoryPercent": [
+        100,
+        100,
+        42,
+        0,
+        0,
+        0
+      ],
+      "barCount": 7
+    }
+  },
+  "verifiedBarGeometry": {
+    "overallFDE": {
+      "trackWidth": 994,
+      "completedWidth": 347.9
+    },
+    "completedCategory": {
+      "trackWidth": 302,
+      "completedWidth": 302
+    },
+    "currentCategory": {
+      "trackWidth": 302,
+      "completedWidth": 126.84
+    }
+  },
+  "canonicalLesson": {
+    "id": "6:1047",
+    "canvasWidth": 1206,
+    "canvasHeight": 1000,
+    "canvasX": 234,
+    "workspaceTopbars": 0,
+    "recommendationPanels": 0,
+    "journeyEntryId": "23:1955"
+  },
+  "browserVerified": {
+    "fileTitle": "Devopsx.si \u2014 DevOps to FDE \u00b7 Client Design",
+    "journeyScreenshot": "devopsx-journey-verified.jpg",
+    "lessonScreenshot": "devopsx-lesson-verified.jpg"
+  },
+  "toolLimitation": "Starter MCP quota prevented additional API screenshot calls after final progress correction; saved proportions and lesson layout were inspected in the live Figma browser instead."
+}

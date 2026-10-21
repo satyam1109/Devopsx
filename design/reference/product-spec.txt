@@ -1,0 +1,302 @@
+DevOps → FDE Flashcard Journey: Product
+Spec for Development
+Oct 19, 2026  ·  @Aditya
+Overview
+We are building a free flashcard learning journey that takes DevOps engineers to Forward
+Deployed Engineer (FDE) readiness, with paid hands-on labs added in phase 2. The app
+already supports SSO and flashcard creation; this spec covers what to add on top so it
+works as a structured, public learning product.
+Business model. Learning is free: all decks, reviews and progress tracking cost nothing.
+Revenue comes later from paid labs (sandboxed environments where learners build and
+get auto-graded) and from team plans. We are not selling a course.
+What makes it different. Competitors sell fixed cohorts or video courses. We offer a
+DevOps-specific path, spaced repetition so people retain what they learn, judgment-style
+scenario cards rather than just definitions, and content that is updated card by card.
+Success metrics for phase 1
+Metric Target (to confirm)
+Learners who finish the first deck after signing up 60%
+Learners active 4 weeks after signup 25%
+Average daily review session 8–12 min
+Learners who complete Phase 1 checkpoint 40% of signups
+Waitlist signups for paid labs Track from launch
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 1 of 11
+
+The learning engine is the core; content only enters through the Git pipeline, and labs
+attach later without changing the app's modules.
+Users and sign-in
+Individuals must be able to start learning in one click; company SSO stays for
+organizations.
+Personas
+Learner: a DevOps, SRE or platform engineer who wants to learn AI or move into an
+FDE role. Knows Linux, Kubernetes, Terraform and CI/CD; may know little Python.
+Team manager: an engineering manager who enrolls a team and wants to see progress.
+Content author/reviewer: writes and reviews cards through Git (see Content
+pipeline).
+Admin: manages tracks, publishing, users and teams.
+Sign-in
+Keep existing SAML/OIDC SSO for organizations; users from an SSO domain join their
+org's team automatically.
+Add GitHub and Google OAuth for individuals. No credit card, no long form.
+System at a glance · users, app modules, stores
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 2 of 11
+
+Allow a guest preview of the first deck without signing in; ask them to sign in to save
+progress.
+Roles: learner, team_manager, author, admin. Roles are per organization; an individual
+account has learner only.
+Content model
+Content is a four-level hierarchy: Track → Phase → Deck → Card. Decks hold 15–25 cards so
+one can be finished in a sitting.
+Tracks. Two tracks share the same decks: "Learn AI" (Phases 1–6) and "Become an FDE"
+(Phases 1–7 plus FDE-tagged cards). A card's track field controls which tracks include it.
+Phases and decks (launch content)
+Card types. The app must render all five:
+Phase Example decks Approx.
+cards
+1. Fundamentals LLMs and tokens; context windows;
+hallucinations; embeddings/RAG/agents overview;
+the FDE role
+60–80
+2. AI-assisted
+DevOps
+Prompting with evidence; reviewing AI output;
+spot the unsafe suggestion
+50–60
+3. Python + APIs Python essentials; calling an LLM; structured
+outputs; retries, limits, cost
+80–100
+4. RAG Chunking; retrieval and ranking; agentic RAG;
+grounding and citations; RAG evaluation
+60–80
+5. Agents + MCP Tool calling; ReAct and the agent loop; frameworks
+compared; MCP; memory; multi-agent delegation
+100–120
+6. Production Deploying AI services; self-hosted models on
+Kubernetes; observability; evals; guardrails;
+caching; cost
+80–100
+7. Field deployment Discovery and scoping; enterprise integrations
+(SaaS, legacy, OAuth); security review; demos and
+handover
+50–70
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 3 of 11
+
+1 . Concept: question and answer.
+2. Scenario: a situation, then the right response and why.
+3. Spot the flaw: a code, config or prompt snippet with a problem to identify.
+4. Ordering: drag items into the correct sequence; auto-graded.
+5. Choose the approach: multiple choice between approaches; auto-graded.
+Concept, scenario and spot-the-flaw cards are self-graded (learner reveals the answer
+and rates recall). Ordering and choice cards are graded by the app.
+Card schema
+id: p5-tool-calling-007        # stable, unique, never reused
+track: [ai, fde]
+phase: 5
+deck: tool-calling
+type: scenario                  # concept | scenario | spot-the-flaw | 
+ordering | choose
+difficulty: 2                   # 1-3
+front: "Markdown, may include code blocks"
+back: "Markdown answer"
+options: []                     # for choose: [{text, correct}]; for 
+ordering: items in correct order
+why_it_matters: "One line linking it to DevOps/FDE work"
+sources:
+  - title: "MCP specification"
+    url: "https://modelcontextprotocol.io"
+tags: [mcp, safety]
+lab_ref: lab-p5-readonly-agent  # optional; link to a phase 2 lab
+version: 3
+last_reviewed: 2026-10-01
+status: published               # draft | published | retired
+Front and back render Markdown with syntax-highlighted code. When a card's content
+changes, bump version; learners keep their review history unless the change is marked
+reset_progress: true.
+Learning engine
+Learners move through the journey by placement, deck study, daily reviews and phase
+checkpoints; spaced repetition decides what they see each day.
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 4 of 11
+
+The loop repeats for each of the seven phases; the paid lab step is a waitlist link until
+phase 2.
+Spaced repetition. Use FSRS (open-source implementations exist for most languages).
+Each self-graded card is rated Again / Hard / Good / Easy; auto-graded cards map correct
+→ Good and wrong → Again. Store a review log per learner per card (card_id, card_version,
+rating, timestamp, elapsed time) so the scheduler can be re-tuned later.
+Daily session. The home screen shows one button: "Start today's session". A session
+mixes due reviews first, then new cards from the current deck, capped at a learner-set
+limit (default 15 new cards a day).
+Placement test. On first sign-in, offer an optional 10–15 minute test sampling each phase.
+Phases the learner passes are marked "tested out": unlocked, with their cards added to
+review at low priority rather than taught as new.
+Gating. Each phase ends with a checkpoint deck of 10–15 mixed scenario cards drawn
+from that phase. Scoring 80% or higher unlocks the next phase. Failing shows which decks
+to revisit and allows a retry after 24 hours. Admins can turn gating off per track.
+Build-it tasks. Each phase ends with a short practical task (for example, "build a read-only
+Kubernetes troubleshooting agent"). In phase 1 these are self-reported checkboxes with a
+written guide. In phase 2 they become paid, auto-graded labs (see Phase 2 hooks).
+Learner journey · one phase, from sign-in to unlock
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 5 of 11
+
+Engagement features
+A free, self-paced product lives or dies on people coming back, so these are core features,
+not polish.
+Content pipeline
+Cards are authored as YAML in a Git repository and published to the app automatically on
+merge; the app's database is never edited by hand.
+Feature Behavior Release
+Streaks Count consecutive days with a completed
+session; one free "freeze" per week
+MVP
+Reminders Daily email at a learner-chosen time; Slack DM
+for SSO orgs with Slack connected
+MVP (email), v1.1
+(Slack)
+Journey map Visual of all 7 phases showing locked, current,
+tested-out and complete
+MVP
+Card feedback "Report a problem" and thumbs up/down on
+every card; reports go to the author queue
+MVP
+Interview mode Timed FDE case prompts (scope an
+underspecified customer problem); learner
+writes an answer, then sees a model answer
+and rubric
+v1.1
+Ask about this
+card
+AI tutor answers follow-up questions,
+grounded only in the card and its sources
+v1.2
+Public profile Optional page showing phases completed
+and, later, verified labs
+v1.2
+Referrals Invite link; rewards to be decided (e.g., lab
+credits)
+v1.2
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 6 of 11
+
+Learner reports and per-card analytics flow back to authors, so weak cards get rewritten
+through the same pipeline.
+1 . Repo layout: tracks/<track>.yaml, phases/<n>/<deck>/deck.yaml (deck metadata)
+and phases/<n>/<deck>/cards/*.yaml (one file per card).
+2. Authoring: authors open a pull request; at least one reviewer with real-world
+experience approves it.
+3. CI checks on every PR:
+Validate every file against a JSON Schema of the card format.
+Check card IDs are unique and never reused from retired cards.
+Check every source URL returns HTTP 200 (nightly as well, opening an issue for
+broken links).
+Warn on cards with last_reviewed older than 90 days.
+Lint Markdown and code blocks.
+4. Publish on merge: CI calls an authenticated import endpoint, e.g. POST
+/api/content/import, with the changed decks. The import is idempotent and
+versioned: new cards are added, changed cards get a new version, removed cards are
+set to retired (never hard-deleted, so review history survives).
+5. Preview: each PR gets a preview link showing the cards rendered as learners will see
+them.
+The repo may become public later so the community can contribute decks; keep secrets
+and lab answers out of it.
+Content pipeline · 7 steps and a feedback loop
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 7 of 11
+
+Teams, admin and analytics
+Teams are the future paid tier, so the data model should support them from day one even
+if the UI ships later.
+Teams (v1.1)
+An organization has teams; a team has members and one or more managers.
+Managers see each member's current phase, streak, checkpoint scores and weak
+decks. They do not see individual card answers.
+Private decks: an organization can add its own decks (e.g., from internal runbooks)
+visible only to its members.
+CSV export of team progress.
+Admin (MVP)
+Publish, unpublish and retire decks; see import history.
+Card report queue with status (open, fixed, rejected).
+User and organization management.
+Analytics events (MVP). Track at minimum: signup, placement_completed,
+session_started, card_reviewed (with rating and time), deck_completed,
+checkpoint_attempted (with score), phase_unlocked, build_task_marked_done,
+card_reported, lab_waitlist_joined. Per-card analytics (average rating, Again rate,
+report count) should feed back to authors so weak cards get rewritten.
+Phase 2 hooks for paid labs
+Labs are out of scope for this build, but four things must be in place now so they plug in
+without a rewrite.
+1 . lab_ref on cards and build-it tasks. Show a "Practice this in a lab — coming soon" link
+that adds the learner to a waitlist for that lab.
+2. Entitlements table. entitlements(user_or_org_id, product, granted_at,
+expires_at, source). In phase 1 everything checks against it and everyone has free;
+later, labs_monthly, labs_credits and team_plan are added without touching
+feature code.
+3. Payments-ready account model. Keep billing identity separate from login identity so
+an organization can pay for many users. No payment provider needed yet.
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 8 of 11
+
+4. Verified results. A lab_results(user_id, lab_id, passed_checks, total_checks,
+completed_at, evidence_url) table, shown on the public profile once labs exist.
+For context: labs will be sandboxed environments (likely a Kubernetes cluster per
+session) where learners build agents and are graded automatically. LLM token costs
+inside labs are an open question (see below).
+Non-functional requirements
+Milestones
+Ship in four releases; the MVP is a pilot with real users on Phase 1 plus one Phase 5 deck.
+Dates are to be agreed with the developer.
+Area Requirement
+Devices Responsive web, usable one-handed on a phone; a
+review session must work on mobile. Native apps
+not required for MVP
+Performance Next card appears in under 200 ms; session start
+under 1 s
+Offline Nice to have: queue reviews offline and sync later
+Accessibility WCAG 2.1 AA; full keyboard shortcuts for review
+(Space to reveal, 1–4 to rate)
+Theming Light and dark mode; code blocks readable in both
+Privacy Store only what's needed; managers see
+aggregates, not answers; account and data
+deletion on request
+Security SSO/OAuth only (no passwords); import endpoint
+authenticated with a CI token; rate limiting on
+public endpoints
+Reliability Review logs must never be lost; daily backups
+Observability Structured logs, error tracking, and a dashboard for
+the analytics events above
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 9 of 11
+
+The full scope of each release is listed below.
+1 . MVP (pilot): GitHub/Google sign-in alongside SSO; content model and all five card
+types; FSRS daily sessions; Phase 1 checkpoint and gating; journey map; streaks and
+email reminders; card reporting; Git import pipeline with CI checks; admin basics;
+analytics events; lab_ref waitlist and entitlements table.
+2. v1.0 (public launch): placement test; Phases 1–6 content loaded; guest preview of the
+first deck; PR preview links.
+3. v1.1: teams and manager dashboard; private org decks; Slack reminders; interview
+mode; Phase 7 content.
+4. v1.2: "Ask about this card" AI tutor; public profiles; referrals; groundwork for phase 2
+labs.
+Open questions for the developer
+Release plan · 4 releases, headline items only
+How far does the existing app's flashcard model differ from the schema above, and is it
+cheaper to migrate or rebuild?
+Does the existing SSO setup support adding GitHub/Google OAuth for individuals
+alongside org logins?
+Which FSRS library fits our stack, and where should scheduling run (server or client)?
+Can the current hosting handle a public, free user base, and what does it cost at 10,000
+monthly active learners?
+Which email/notification provider will we use for reminders?
+Rough estimate for the MVP and each later release.
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 10 of 11
+
+For phase 2 labs: who pays for LLM tokens (learner's own API key, metered credits, or
+capped sandbox)? Not needed now, but it affects the entitlements design.
+DevOps → FDE Flashcard Journey: Product Spec for Development
+Page 11 of 11
