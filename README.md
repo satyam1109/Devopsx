@@ -133,3 +133,7 @@ The frontend tests cover shared ordered lesson IDs, scoped progress, combined li
 ## Render backend deployment
 
 See [backend/RENDER.md](backend/RENDER.md) for the Docker deployment, managed PostgreSQL settings, health check, free-tier lifecycle, and the current authentication boundary. The `production,render` profiles are separate from the local H2 demo.
+
+## Vercel frontend deployment
+
+See [VERCEL.md](VERCEL.md) for Vite build settings, the same-origin Render API proxy, and the hosted guest demo. Hosted guest preferences and progress are saved in the browser until real sign-in is added; published sample lessons come from Render/PostgreSQL. Admin demo access remains local only.

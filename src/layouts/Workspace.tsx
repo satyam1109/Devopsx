@@ -25,7 +25,7 @@ const navigation = [
   { to: "/progress", label: "My Progress", icon: ChartNoAxesCombined },
 ];
 export function Workspace() {
-  const { preferences, catalog, loading, error, refresh } = useApp();
+  const { preferences, catalog, loading, error, refresh, guest } = useApp();
   const location = useLocation();
   const [open, setOpen] = useState(false);
   const [mobile, setMobile] = useState(window.innerWidth <= 700);
@@ -149,9 +149,13 @@ export function Workspace() {
             </span>
             <div>
               <strong>{preferences.name}</strong>
-              <small>Personal workspace</small>
+              <small>
+                {guest
+                  ? "Progress saved in this browser"
+                  : "Personal workspace"}
+              </small>
             </div>
-            <Badge tone="neutral">Demo</Badge>
+            <Badge tone="neutral">{guest ? "Guest" : "Demo"}</Badge>
           </div>
         </div>
       </aside>
@@ -176,7 +180,9 @@ export function Workspace() {
                 <span>Find a concept or lesson</span>
                 <kbd>⌕</kbd>
               </Link>
-              <Badge tone="neutral">Demo workspace</Badge>
+              <Badge tone="neutral">
+                {guest ? "Guest demo" : "Demo workspace"}
+              </Badge>
               <span className="avatar small">{preferences.name.charAt(0)}</span>
             </>
           )}
@@ -191,7 +197,8 @@ export function Workspace() {
             <div className="connection-error">
               <h1>Let’s reconnect your workspace</h1>
               <p>
-                The Spring Boot server needs to be running to load your content.
+                The learning service may be waking up. Please try again in a
+                moment.
               </p>
               <ErrorNotice error={error} />
               <Button onClick={() => void refresh()}>Try again</Button>

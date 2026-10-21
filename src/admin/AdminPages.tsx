@@ -78,20 +78,34 @@ export function AdminLayout() {
           <span className="icon-box large">
             <ShieldCheck size={28} />
           </span>
-          <h2>Explore the admin portal</h2>
+          <h2>
+            {session.demo
+              ? "Explore the admin portal"
+              : "Admin access is not available yet"}
+          </h2>
           <p>
-            This local demo lets you manage tracks, main concepts, topics,
-            lessons, flashcards, and images. Changes are saved in the local
-            database.
+            {session.demo
+              ? "This local demo lets you manage tracks, main concepts, topics, lessons, flashcards, and images. Changes are saved in the local database."
+              : "You can explore all published sample lessons in the learning workspace. Content management will open after secure administrator sign-in is connected."}
           </p>
-          <Badge tone="amber">Demo access · Shared local workspace</Badge>
+          <Badge tone="amber">
+            {session.demo
+              ? "Demo access · Shared local workspace"
+              : "Administrator sign-in pending"}
+          </Badge>
           <p className="small">
             Production sign-in and user roles will be connected before release.
           </p>
           <ErrorNotice error={error} />
-          <Button onClick={() => void enter()} busy={busy}>
-            Enter admin demo <ArrowRight size={17} />
-          </Button>
+          {session.demo ? (
+            <Button onClick={() => void enter()} busy={busy}>
+              Enter admin demo <ArrowRight size={17} />
+            </Button>
+          ) : (
+            <ActionLink to="/journey">
+              Explore the Learning Journey <ArrowRight size={17} />
+            </ActionLink>
+          )}
         </section>
       </>
     );

@@ -21,7 +21,7 @@ import {
 import { completion, lessonsFor } from "../lib/content";
 import { message } from "../lib/api";
 export function Settings() {
-  const { preferences, setPreferences, catalog } = useApp();
+  const { preferences, setPreferences, catalog, guest } = useApp();
   const [draft, setDraft] = useState(preferences),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
@@ -114,11 +114,12 @@ export function Settings() {
         </div>
       </form>
       <section className="panel demo-info">
-        <Badge tone="neutral">LOCAL DEMO</Badge>
+        <Badge tone="neutral">{guest ? "GUEST DEMO" : "LOCAL DEMO"}</Badge>
         <h3>A space to try the experience</h3>
         <p>
-          This version uses sample lessons and a shared local demo profile. Real
-          accounts and production content will be connected in a later release.
+          {guest
+            ? "Sample lessons are loaded from our learning service. Your name, preferences, saved lessons, and study progress stay in this browser. Clearing site data resets them; they do not sync across devices. Real sign-in and admin access will be added later."
+            : "This version uses sample lessons and a shared local demo profile. Real accounts and production content will be connected in a later release."}
         </p>
         <Link className="text-link" to="/admin">
           Open the admin portal <ArrowRight size={15} />
@@ -128,7 +129,7 @@ export function Settings() {
   );
 }
 export function Onboarding() {
-  const { preferences, setPreferences, catalog } = useApp();
+  const { preferences, setPreferences, catalog, guest } = useApp();
   const [name, setName] = useState(
       preferences.name === "Alex" ? "" : preferences.name,
     ),
@@ -207,7 +208,11 @@ export function Onboarding() {
             Start learning <ArrowRight size={17} />
           </Button>
         </form>
-        <small>You can change your track at any time. Demo content only.</small>
+        <small>
+          {guest
+            ? "Guest demo · Sample content only. Progress is saved in this browser."
+            : "You can change your track at any time. Demo content only."}
+        </small>
       </section>
     </div>
   );
