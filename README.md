@@ -129,3 +129,7 @@ cd backend
 ```
 
 The frontend tests cover shared ordered lesson IDs, scoped progress, combined library filters, and due-card filtering. Backend HTTP integration tests cover admin authorization, CSRF, publishing/draft ancestry, hierarchy and URL validation, answer validation, idempotent completion, preferences, scheduling, uploads, referenced-media protection, and disabling demo role switching outside the demo profile. Tests use an isolated in-memory database and do not change the local demo database.
+
+## Render backend deployment
+
+See [backend/RENDER.md](backend/RENDER.md) for the Docker deployment, managed PostgreSQL settings, health check, free-tier lifecycle, and the current authentication boundary. The `production,render` profiles are separate from the local H2 demo.

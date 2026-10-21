@@ -3,6 +3,8 @@ package si.devopsx.content;
 import java.util.*;
 import java.net.URI;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
+import si.devopsx.persistence.DatabaseWrites;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,9 +16,14 @@ import org.springframework.core.io.ClassPathResource;
 public class ContentService implements CommandLineRunner {
   private final JdbcTemplate db;
   private final ObjectMapper json;
-  public ContentService(JdbcTemplate db, ObjectMapper json) { this.db=db;this.json=json; }
+  private final DatabaseWrites writes;
+  private final boolean seedEnabled;
+  public ContentService(JdbcTemplate db, ObjectMapper json, DatabaseWrites writes,
+      @Value("${app.seed.enabled:true}") boolean seedEnabled) {
+    this.db=db;this.json=json;this.writes=writes;this.seedEnabled=seedEnabled;
+  }
   public void run(String... args) throws Exception {
-    if(db.queryForObject("SELECT COUNT(*) FROM content_items",Integer.class)==0) {
+    if(seedEnabled && db.queryForObject("SELECT COUNT(*) FROM content_items",Integer.class)==0) {
       var seed=json.readValue(new ClassPathResource("seed.json").getInputStream(),ContentItem[].class);
       for(var item:seed) store(item);
     }
@@ -41,7 +48,7 @@ public class ContentService implements CommandLineRunner {
     var item=input.withId(id==null?UUID.randomUUID().toString():id);
     validate(item);store(item);return item;
   }
-  private void store(ContentItem x) { db.update("MERGE INTO content_items KEY(id) VALUES (?,?)",x.id(),json.writeValueAsString(x)); }
+  private void store(ContentItem x) { writes.upsert(DatabaseWrites.Table.CONTENT, x.id(),json.writeValueAsString(x)); }
   private void validate(ContentItem x) {
     if(x.title()==null||x.title().isBlank()||x.title().length()>160)throw error(400,"A title of 1–160 characters is required");
     if(!Set.of("TRACK","CONCEPT","TOPIC","LESSON","FLASHCARD").contains(Objects.toString(x.kind(),"")))throw error(400,"Unknown content type");

@@ -1,0 +1,40 @@
+# Free demo only. Free Postgres expires after 30 days.
+# References the existing devopsx-db database in the same Render workspace.
+# Create that free Postgres instance before applying this Blueprint.
+services:
+  - type: web
+    name: devopsx-api
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: production,render
+      - key: SEED_DUMMY_CONTENT
+        value: "true"
+      - key: DB_HOST
+        fromDatabase:
+          name: devopsx-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: devopsx-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: devopsx-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: devopsx-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: devopsx-db
+          property: password

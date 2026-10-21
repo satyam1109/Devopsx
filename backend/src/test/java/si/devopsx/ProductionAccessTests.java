@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import tools.jackson.databind.ObjectMapper;
 import java.net.*;
 import java.net.http.*;
-@SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.RANDOM_PORT,properties={"spring.datasource.url=jdbc:h2:mem:closed-profile;DB_CLOSE_DELAY=-1"})
+@SpringBootTest(webEnvironment=SpringBootTest.WebEnvironment.RANDOM_PORT,properties={"spring.datasource.url=jdbc:h2:mem:closed-profile;DB_CLOSE_DELAY=-1", "server.servlet.session.cookie.secure=false", "app.seed.enabled=true"})
 @ActiveProfiles("production")
 class ProductionAccessTests {
  @LocalServerPort int port;
