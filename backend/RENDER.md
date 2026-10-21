@@ -97,3 +97,23 @@ docker build --platform linux/amd64 -t devopsx-backend:render-test backend
 ```
 
 The Docker build also runs the standard backend tests. PostgreSQL integration tests run separately against the disposable database.
+
+## Live demo
+
+- API base: https://devopsx-api.onrender.com
+- Database health: https://devopsx-api.onrender.com/api/health
+- Published dummy catalog: https://devopsx-api.onrender.com/api/catalog
+- Render service: https://dashboard.render.com/web/srv-dbcdqtff3r2c739nmk2g
+- Blueprint: https://dashboard.render.com/blueprint/exs-dbcdqmff3r2c739nm18g
+- First deployed application commit: `8a9160c1c1084391ebab6f35c5b56c78e26a80c1`.
+- The current free database expires on **20 November 2026**.
+
+The first live checks confirmed database health, 44 published content items including 20 dummy lessons, secure session cookies, disabled local demo elevation, authentication on protected endpoints, and no CORS permission for an untrusted browser origin. Ten backend tests passed, including four against real PostgreSQL. The image also passed a local smoke test under a 512 MiB memory limit.
+
+To repeat the public API smoke checks (no credentials required):
+
+```sh
+node scripts/check-backend.mjs https://devopsx-api.onrender.com
+```
+
+The public root `/` is not a frontend or an anonymous API endpoint. Use `/api/health` or `/api/catalog` to check this backend. A future frontend should proxy the API and add real sign-in before using protected learner/admin features.

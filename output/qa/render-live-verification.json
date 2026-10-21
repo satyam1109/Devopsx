@@ -1,0 +1,20 @@
+{
+  "url": "https://devopsx-api.onrender.com",
+  "passed": true,
+  "checks": [
+    "Database health: UP",
+    "Published catalog: 44 items, 20 lessons",
+    "Demo role elevation: disabled",
+    "Admin and learner data: authentication required",
+    "Untrusted browser origin: no CORS permission"
+  ],
+  "deployedCommit": "8a9160c1c1084391ebab6f35c5b56c78e26a80c1",
+  "serviceId": "srv-dbcdqtff3r2c739nmk2g",
+  "deployId": "dep-dbcdqtvf3r2c739nmkl0",
+  "region": "singapore",
+  "plan": "free",
+  "databaseExpiresOn": "2026-11-20",
+  "backendTestsPassed": 10,
+  "containerMemoryLimit": "512 MiB",
+  "containerSmokeTestPassed": true
+}
