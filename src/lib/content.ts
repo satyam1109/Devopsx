@@ -45,6 +45,7 @@ export function filterLessons(
   savedOnly: boolean,
   saved: string[],
 ) {
+  const term = query.trim().toLowerCase();
   const eligible = conceptId
     ? new Set(lessonsFor(items, conceptId).map((x) => x.id))
     : null;
@@ -53,9 +54,12 @@ export function filterLessons(
       x.kind === "LESSON" &&
       (!eligible || eligible.has(x.id)) &&
       (!savedOnly || saved.includes(x.id)) &&
-      `${x.title} ${x.summary} ${x.tags.join(" ")}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
+      (!term ||
+        `${x.title} ${x.summary} ${x.tags.join(" ")} ${ancestors(items, x.id)
+          .map((node) => node.title)
+          .join(" ")}`
+          .toLowerCase()
+          .includes(term)),
   );
 }
 

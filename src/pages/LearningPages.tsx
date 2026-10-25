@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState, type FormEvent } from "react";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import {
   ArrowRight,
   Check,
@@ -101,11 +101,13 @@ export function Dashboard() {
           icon={<Layers size={20} />}
           value={String(cards.length)}
           label="Cards ready to review"
+          to="/flashcards"
         />
         <Stat
           icon={<Target size={20} />}
           value={`${preferences.dailyGoal} min`}
           label="Your daily learning goal"
+          to="/settings#daily-goal"
         />
       </div>
       <div className="section-heading">
@@ -186,19 +188,29 @@ function Stat({
   icon,
   value,
   label,
+  to,
 }: {
   icon: React.ReactNode;
   value: string;
   label: string;
+  to?: string;
 }) {
-  return (
-    <section className="panel stat">
+  const body = (
+    <>
       <div className="icon-box">{icon}</div>
       <div>
         <strong>{value}</strong>
         <p>{label}</p>
       </div>
-    </section>
+    </>
+  );
+  return to ? (
+    <Link to={to} className="panel stat stat-link">
+      {body}
+      <ArrowRight className="stat-arrow" size={16} aria-hidden="true" />
+    </Link>
+  ) : (
+    <section className="panel stat">{body}</section>
   );
 }
 export function Journey() {
@@ -416,12 +428,31 @@ export function TopicPage() {
 }
 export function Library() {
   const { catalog, preferences, progress } = useApp();
-  const [query, setQuery] = useState(""),
-    [concept, setConcept] = useState(""),
-    [savedOnly, setSavedOnly] = useState(false);
+  const [params, setParams] = useSearchParams();
+  const appliedQuery = params.get("q") || "";
+  const concept = params.get("concept") || "";
+  const savedOnly = params.get("saved") === "1";
+  const [query, setQuery] = useState(appliedQuery);
+  useEffect(() => {
+    setQuery(appliedQuery);
+  }, [appliedQuery]);
+  const updateFilters = (changes: Record<string, string>) => {
+    setParams((current) => {
+      const next = new URLSearchParams(current);
+      for (const [key, value] of Object.entries(changes)) {
+        if (value) next.set(key, value);
+        else next.delete(key);
+      }
+      return next;
+    });
+  };
+  const search = (e: FormEvent) => {
+    e.preventDefault();
+    updateFilters({ q: query.trim() });
+  };
   const lessons = filterLessons(
     catalog,
-    query,
+    appliedQuery,
     concept,
     savedOnly,
     preferences.saved,
@@ -434,24 +465,42 @@ export function Library() {
         description="Find a lesson, revisit a concept, or follow your curiosity. It’s all connected to your journey."
       />
       <section className="library-controls">
-        <label className="search-input">
-          <Search size={19} />
-          <input
-            aria-label="Search lessons"
-            placeholder="Search concepts, topics, or lessons…"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          {query && (
-            <button aria-label="Clear search" onClick={() => setQuery("")}>
-              ×
-            </button>
-          )}
-        </label>
+        <form
+          className="library-search"
+          role="search"
+          aria-label="Search resource library"
+          onSubmit={search}
+        >
+          <div className="search-input">
+            <Search size={19} aria-hidden="true" />
+            <input
+              aria-label="Search lessons"
+              placeholder="Search concepts, topics, or lessons…"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            {query && (
+              <button
+                type="button"
+                aria-label="Clear search"
+                onClick={() => {
+                  setQuery("");
+                  updateFilters({ q: "" });
+                }}
+              >
+                ×
+              </button>
+            )}
+          </div>
+          <Button type="submit">
+            <Search size={16} />
+            Search
+          </Button>
+        </form>
         <select
           aria-label="Filter by main concept"
           value={concept}
-          onChange={(e) => setConcept(e.target.value)}
+          onChange={(e) => updateFilters({ concept: e.target.value })}
         >
           <option value="">All main concepts</option>
           {catalog
@@ -466,21 +515,34 @@ export function Library() {
       <div className="library-tabs">
         <button
           className={!savedOnly ? "active" : ""}
-          onClick={() => setSavedOnly(false)}
+          aria-pressed={!savedOnly}
+          onClick={() => updateFilters({ saved: "" })}
         >
           All resources
         </button>
         <button
           className={savedOnly ? "active" : ""}
-          onClick={() => setSavedOnly(true)}
+          aria-pressed={savedOnly}
+          onClick={() => updateFilters({ saved: "1" })}
         >
           <Bookmark size={15} />
-          Saved lessons <span>{preferences.saved.length}</span>
+          Saved lessons{" "}
+          <span>
+            {filterLessons(catalog, "", "", true, preferences.saved).length}
+          </span>
         </button>
       </div>
       <div className="section-heading">
-        <h2>{savedOnly ? "Your saved lessons" : "Explore the library"}</h2>
-        <span className="muted">{countLabel(lessons.length, "lesson")}</span>
+        <h2>
+          {savedOnly
+            ? "Your saved lessons"
+            : appliedQuery
+              ? "Search results"
+              : "Explore the library"}
+        </h2>
+        <span className="muted" role="status">
+          {countLabel(lessons.length, "lesson")}
+        </span>
       </div>
       {lessons.length ? (
         <div className="resource-grid">
@@ -519,10 +581,12 @@ export function Library() {
       ) : (
         <EmptyState
           title={
-            savedOnly ? "A place for your useful ideas" : "No lessons found"
+            savedOnly && !appliedQuery && !concept
+              ? "A place for your useful ideas"
+              : "No lessons found"
           }
           description={
-            savedOnly
+            savedOnly && !appliedQuery && !concept
               ? "Save any lesson using the bookmark button to find it here."
               : "Try another phrase or choose a different concept."
           }
@@ -531,8 +595,7 @@ export function Library() {
               variant="secondary"
               onClick={() => {
                 setQuery("");
-                setConcept("");
-                setSavedOnly(false);
+                setParams({});
               }}
             >
               Show all lessons

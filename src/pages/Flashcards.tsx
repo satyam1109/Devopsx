@@ -8,6 +8,8 @@ import {
   Layers,
   RotateCcw,
   Lightbulb,
+  Plus,
+  Pencil,
 } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { dueCards } from "../lib/content";
@@ -21,8 +23,67 @@ import {
   ActionLink,
 } from "../components/ui";
 import { message } from "../lib/api";
+import type { Content } from "../lib/types";
+import { cardFormatLabel } from "../lib/personalFlashcards";
+import { FlashcardEditor } from "../components/FlashcardEditor";
 export function Flashcards() {
-  const { catalog, progress, review } = useApp();
+  const { catalog, saveFlashcard } = useApp();
+  const [params] = useSearchParams();
+  const [editor, setEditor] = useState<Content | null | undefined>(undefined);
+  const [notice, setNotice] = useState("");
+  return (
+    <>
+      {notice && (
+        <p className="flashcard-notice" role="status">
+          <Check size={17} />
+          {notice}
+        </p>
+      )}
+      <FlashcardsContent
+        onCreate={() => {
+          setNotice("");
+          setEditor(null);
+        }}
+        onEdit={(card) => {
+          setNotice("");
+          setEditor(card);
+        }}
+        onStart={() => setNotice("")}
+        editorOpen={editor !== undefined}
+      />
+      {editor !== undefined && (
+        <FlashcardEditor
+          card={editor}
+          lessonId={params.get("lesson") || undefined}
+          lessons={catalog.filter((x) => x.kind === "LESSON")}
+          onClose={() => setEditor(undefined)}
+          onSave={async (draft) => {
+            await saveFlashcard(draft);
+            setEditor(undefined);
+            setNotice(
+              editor
+                ? "Your personal changes are saved in this browser."
+                : "Flashcard created. It is ready to review.",
+            );
+          }}
+        />
+      )}
+    </>
+  );
+}
+
+function FlashcardsContent({
+  onCreate,
+  onEdit,
+  onStart,
+  editorOpen,
+}: {
+  onCreate: () => void;
+  onEdit: (card: Content) => void;
+  onStart: () => void;
+  editorOpen: boolean;
+}) {
+  const { catalog, progress, review, personalCards } = useApp();
   const [params] = useSearchParams();
   const lesson = params.get("lesson");
   const all = catalog.filter(
@@ -46,8 +107,9 @@ export function Flashcards() {
     setScore(null);
     setOrder(card?.options ? [...card.options] : []);
     setError("");
-  }, [card?.id]);
+  }, [card]);
   const start = (allCards = false) => {
+    onStart();
     setQueue((allCards ? all : due).map((x) => x.id));
     setIndex(0);
   };
@@ -78,6 +140,7 @@ export function Flashcards() {
     const handler = (e: KeyboardEvent) => {
       if (
         !card ||
+        editorOpen ||
         busy ||
         e.target instanceof HTMLInputElement ||
         e.target instanceof HTMLTextAreaElement ||
@@ -108,6 +171,12 @@ export function Flashcards() {
           eyebrow="FLASHCARDS"
           title="A little recall. A lasting idea."
           description="Practice what you’ve learned, one small question at a time."
+          action={
+            <Button onClick={onCreate}>
+              <Plus size={17} />
+              Create Flashcard
+            </Button>
+          }
         />
         <section className="panel flashcard-intro">
           <div className="flashcard-illustration">
@@ -145,7 +214,10 @@ export function Flashcards() {
             )}
           </div>
           {!all.length && (
-            <p>Flashcards will appear here when an admin publishes them.</p>
+            <p>
+              Create your first flashcard, or explore published cards from other
+              lessons.
+            </p>
           )}
           <small>
             Use Space to reveal and 1–4 to rate. Your next review adjusts to
@@ -157,6 +229,57 @@ export function Flashcards() {
           Demo cards illustrate the review formats. Your team will author the
           learning content later.
         </div>
+        <section
+          className="panel flashcard-collection"
+          aria-label="Flashcard collection"
+        >
+          <div className="section-heading">
+            <div>
+              <h2>Your collection</h2>
+              <p className="muted small">
+                Edit a card to make it work for you. Personal cards and edits
+                stay in this browser.
+              </p>
+            </div>
+            <Badge tone="neutral">{all.length} cards</Badge>
+          </div>
+          {all.map((item) => {
+            const personal = personalCards.find(
+              (x) => x.content.id === item.id,
+            );
+            return (
+              <article className="flashcard-collection-row" key={item.id}>
+                <div>
+                  <div className="flashcard-row-meta">
+                    <Badge tone="neutral">
+                      {cardFormatLabel(item.cardType)}
+                    </Badge>
+                    {personal && (
+                      <Badge>
+                        {personal.sourceId ? "Your edit" : "Personal"}
+                      </Badge>
+                    )}
+                  </div>
+                  <h3>{item.question}</h3>
+                  <Link to={"/lessons/" + item.parentId}>
+                    {catalog.find((x) => x.id === item.parentId)?.title}
+                  </Link>
+                </div>
+                <Button
+                  variant="secondary"
+                  aria-label={"Edit flashcard: " + item.question}
+                  onClick={() => onEdit(item)}
+                >
+                  <Pencil size={15} />
+                  Edit
+                </Button>
+              </article>
+            );
+          })}
+          {!all.length && (
+            <p className="muted">No flashcards in this collection yet.</p>
+          )}
+        </section>
       </>
     );
   if (finished)
@@ -173,6 +296,10 @@ export function Flashcards() {
             <ActionLink to="/journey" secondary>
               Continue learning
             </ActionLink>
+            <Button variant="secondary" onClick={onCreate}>
+              <Plus size={17} />
+              Create Flashcard
+            </Button>
           </>
         }
       />
@@ -198,9 +325,19 @@ export function Flashcards() {
         eyebrow="FLASHCARD REVIEW"
         title="One idea at a time."
         action={
-          <Button variant="ghost" onClick={() => setQueue(null)}>
-            End session
-          </Button>
+          <div className="flashcard-actions">
+            <Button
+              variant="ghost"
+              disabled={busy}
+              onClick={() => setQueue(null)}
+            >
+              End session
+            </Button>
+            <Button disabled={busy} onClick={onCreate}>
+              <Plus size={17} />
+              Create Flashcard
+            </Button>
+          </div>
         }
       />
       <div className="review-progress">
@@ -219,9 +356,22 @@ export function Flashcards() {
               ? "SPOT THE FLAW"
               : card.cardType?.toUpperCase()}
           </Badge>
-          <Link to={"/lessons/" + card.parentId}>
-            View lesson <ArrowRight size={14} />
-          </Link>
+          <div className="flashcard-actions">
+            {personalCards.some((x) => x.content.id === card.id) && (
+              <Badge>Personal</Badge>
+            )}
+            <Link to={"/lessons/" + card.parentId}>
+              View lesson <ArrowRight size={14} />
+            </Link>
+            <Button
+              variant="ghost"
+              disabled={busy}
+              onClick={() => onEdit(card)}
+            >
+              <Pencil size={15} />
+              Edit
+            </Button>
+          </div>
         </div>
         <h2>{card.question}</h2>
         {card.cardType === "choice" && (
@@ -234,6 +384,7 @@ export function Flashcards() {
               <button
                 disabled={revealed}
                 role="radio"
+                aria-label={`${String.fromCharCode(65 + i)} ${x}`}
                 aria-checked={choice === i}
                 className={`${choice === i ? "selected" : ""} ${revealed && card.correctOption === i ? "correct" : ""}`}
                 key={x}
@@ -325,7 +476,12 @@ export function Flashcards() {
               { n: 3, label: "Good", hint: "A few days" },
               { n: 4, label: "Easy", hint: "Later this week" },
             ].map((x) => (
-              <button disabled={busy} key={x.n} onClick={() => void rate(x.n)}>
+              <button
+                disabled={busy}
+                key={x.n}
+                aria-label={`${x.n} ${x.label} ${x.hint}`}
+                onClick={() => void rate(x.n)}
+              >
                 <kbd>{x.n}</kbd>
                 <strong>{x.label}</strong>
                 <small>{x.hint}</small>

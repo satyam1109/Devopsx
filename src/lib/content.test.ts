@@ -77,4 +77,10 @@ describe("shared learning content", () => {
     ).toEqual([]);
     expect(dueCards(catalog, { completed: [], reviews: [] })).toHaveLength(1);
   });
+  it("finds lessons by their parent topic or main concept", () => {
+    expect(
+      filterLessons(catalog, "topic", "", false, []).map((x) => x.id),
+    ).toEqual(["late", "early"]);
+    expect(filterLessons(catalog, " shared ", "", false, [])).toHaveLength(2);
+  });
 });

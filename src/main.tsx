@@ -21,6 +21,7 @@ import {
 import { LessonPage } from "./pages/LessonPage";
 import { Settings, Onboarding, ProgressPage } from "./pages/AccountPages";
 import { Flashcards } from "./pages/Flashcards";
+import { ProfilePage } from "./pages/ProfilePage";
 import {
   AdminLayout,
   AdminOverview,
@@ -70,6 +71,7 @@ const router = createBrowserRouter(
         <Route path="flashcards" element={<Flashcards />} />
         <Route path="progress" element={<ProgressPage />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="admin" element={<AdminLayout />}>
           <Route index element={<AdminOverview />} />
           <Route path="content" element={<AdminContent />} />

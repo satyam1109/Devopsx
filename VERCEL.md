@@ -11,6 +11,7 @@ Deploy the repository root as a **Vite** project on Vercel's existing Hobby work
 - Guest progress is not uploaded to PostgreSQL or shared across devices. Clearing site data resets it. Storage failures are surfaced before showing success.
 - The hosted admin portal displays an access notice. Real sign-in and per-user backend storage are future work. Do not enable the backend's local demo profile publicly.
 - Local development retains its existing server-backed demo and admin authoring workflow.
+- Learner-created flashcards and personal overrides are saved separately under `devopsx:personal-flashcards:v1` in browser storage in both local and hosted modes. They never overwrite the shared catalog. Reviews of personal cards also stay in this browser and use the existing scheduling rules; unmodified cards retain the current demo/guest storage behavior. The learner UI and admin portal share the same flashcard fields.
 - Render's free service can take time to wake up. If a request fails during startup, use **Try again** once it is awake. See `backend/RENDER.md` for the database expiry date and deployment details.
 
 ## Release checks

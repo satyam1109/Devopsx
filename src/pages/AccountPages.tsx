@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ArrowRight,
   Check,
@@ -22,6 +22,16 @@ import { completion, lessonsFor } from "../lib/content";
 import { message } from "../lib/api";
 export function Settings() {
   const { preferences, setPreferences, catalog, guest } = useApp();
+  const { hash } = useLocation();
+  const goalRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (hash !== "#daily-goal") return;
+    const frame = requestAnimationFrame(() => {
+      goalRef.current?.scrollIntoView({ block: "center" });
+      goalRef.current?.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [hash]);
   const [draft, setDraft] = useState(preferences),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
@@ -82,24 +92,36 @@ export function Settings() {
               ))}
           </select>
         </Field>
-        <Field label="Daily learning goal">
-          <div className="goal-options">
-            {[10, 15, 30, 45].map((n) => (
-              <button
-                type="button"
-                aria-pressed={draft.dailyGoal === n}
-                className={draft.dailyGoal === n ? "selected" : ""}
-                key={n}
-                onClick={() => {
-                  setSaved(false);
-                  setDraft({ ...draft, dailyGoal: n });
-                }}
-              >
-                {n} min
-              </button>
-            ))}
-          </div>
-        </Field>
+        <div
+          id="daily-goal"
+          ref={goalRef}
+          tabIndex={-1}
+          className="daily-goal-section"
+          role="group"
+          aria-label="Daily learning goal"
+        >
+          <Field
+            label="Daily learning goal"
+            hint="Choose a daily target, then save your preferences."
+          >
+            <div className="goal-options">
+              {[10, 15, 30, 45].map((n) => (
+                <button
+                  type="button"
+                  aria-pressed={draft.dailyGoal === n}
+                  className={draft.dailyGoal === n ? "selected" : ""}
+                  key={n}
+                  onClick={() => {
+                    setSaved(false);
+                    setDraft({ ...draft, dailyGoal: n });
+                  }}
+                >
+                  {n} min
+                </button>
+              ))}
+            </div>
+          </Field>
+        </div>
         <ErrorNotice error={error} />
         <div className="form-actions">
           <Button type="submit" busy={busy}>
@@ -160,7 +182,7 @@ export function Onboarding() {
         <span className="brand-mark">
           D<span>↗</span>
         </span>
-        Devopsx.si
+        Devopsx
       </Link>
       <section className="welcome-card" id="main-content">
         <div className="icon-box large">

@@ -1,3 +1,4 @@
+import { FlashcardFields } from "../components/FlashcardFields";
 import { useState, useEffect, type FormEvent } from "react";
 import {
   Link,
@@ -1001,96 +1002,6 @@ export function ContentEditor() {
         </Modal>
       )}
     </>
-  );
-}
-function FlashcardFields({
-  draft,
-  update,
-}: {
-  draft: Content;
-  update: (v: Partial<Content>) => void;
-}) {
-  return (
-    <section className="panel editor-section">
-      <h2>Flashcard content</h2>
-      <Field label="Card format">
-        <select
-          aria-label="Card format"
-          value={draft.cardType || "concept"}
-          onChange={(e) =>
-            update({ cardType: e.target.value as Content["cardType"] })
-          }
-        >
-          {["concept", "scenario", "flaw", "choice", "ordering"].map((x) => (
-            <option key={x} value={x}>
-              {x === "flaw"
-                ? "Spot the flaw"
-                : x.charAt(0).toUpperCase() + x.slice(1)}
-            </option>
-          ))}
-        </select>
-      </Field>
-      <Field label="Question or prompt">
-        <textarea
-          aria-label="Question"
-          required
-          rows={3}
-          value={draft.question || ""}
-          onChange={(e) => update({ question: e.target.value })}
-        />
-      </Field>
-      <Field label="Answer and explanation">
-        <textarea
-          aria-label="Answer and explanation"
-          required
-          rows={4}
-          value={draft.answer || ""}
-          onChange={(e) => update({ answer: e.target.value })}
-        />
-      </Field>
-      {["choice", "ordering"].includes(draft.cardType || "") && (
-        <>
-          <Field label="Options (one per line)">
-            <textarea
-              aria-label="Answer options"
-              required
-              rows={4}
-              value={draft.options.join("\n")}
-              onChange={(e) => update({ options: e.target.value.split("\n") })}
-            />
-          </Field>
-          {draft.cardType === "choice" ? (
-            <Field label="Correct answer">
-              <select
-                aria-label="Correct answer"
-                value={draft.correctOption ?? 0}
-                onChange={(e) =>
-                  update({ correctOption: Number(e.target.value) })
-                }
-              >
-                {draft.options.map((x, i) => (
-                  <option key={i} value={i}>
-                    {x || "Option " + (i + 1)}
-                  </option>
-                ))}
-              </select>
-            </Field>
-          ) : (
-            <Field label="Correct sequence (one option per line)">
-              <textarea
-                aria-label="Correct sequence"
-                required
-                rows={4}
-                value={draft.correctOrder.join("\n")}
-                onChange={(e) =>
-                  update({ correctOrder: e.target.value.split("\n") })
-                }
-              />
-            </Field>
-          )}
-        </>
-      )}
-    </section>
   );
 }
 export function MediaLibrary() {

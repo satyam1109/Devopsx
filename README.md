@@ -36,7 +36,9 @@ For a different backend port, set `PORT` for Spring Boot and `DEVOPSX_BACKEND_UR
 - A single canonical `/lessons/:id` route from every entry point, with a full-width reading workspace beside the sidebar.
 - Overall, concept, and topic progress derived from saved lesson completions. Shared concepts retain the same lesson progress across tracks.
 - Saved lessons, previous/next navigation, and persisted preferences.
+- Clickable learner profile with saved lessons, learning details, and progress. Dashboard review/goal cards link to Flashcards and the daily-goal controls. Library search supports an explicit Search button or Enter, concept/topic names, and saved-item filters that survive reloads in the URL.
 - Five demo flashcard formats: concept, scenario, spot the flaw, choice, and ordering. Choice and ordering are automatically graded; all formats support self-rating and persist their next review time.
+- Learners can create personal flashcards and edit their own versions of published cards. A shared editor supports all five formats. Personal cards, edits, and their subsequent reviews persist in this browser only; admin originals remain unchanged. Existing review history carries forward when personalizing a card. Real account ownership and cross-device sync are pending.
 - Admin portal at `/admin`, including content creation/editing, parent selection, shared concept-to-track assignments, display order, draft/published/archived states, and guarded deletion.
 - Lesson block editor for paragraphs, headings, bullet lists, callouts, code, images, and external links. Preview uses the same renderer as the learner reader.
 - Reusable media library, image upload, accessible alternative text, and protection against deleting referenced images.

@@ -5,6 +5,7 @@ import {
   useState,
   useCallback,
   useRef,
+  useMemo,
   type ReactNode,
 } from "react";
 import { api, session as getSession, enterDemo, message } from "../lib/api";
@@ -16,6 +17,15 @@ import {
   reviewGuest,
   type GuestState,
 } from "../lib/guest";
+import {
+  readPersonalFlashcards,
+  writePersonalFlashcards,
+  personalCatalog,
+  personalProgress,
+  preparePersonalFlashcard,
+  type PersonalFlashcard,
+  type PersonalFlashcards,
+} from "../lib/personalFlashcards";
 type State = {
   catalog: Content[];
   preferences: Preferences;
@@ -30,11 +40,15 @@ type State = {
   save: (id: string) => Promise<void>;
   switchRole: (role: "LEARNER" | "ADMIN") => Promise<void>;
   review: (id: string, rating: number) => Promise<void>;
+  personalCards: PersonalFlashcard[];
+  saveFlashcard: (draft: Content) => Promise<Content>;
 };
 const Context = createContext<State | null>(null);
 export function AppProvider({ children }: { children: ReactNode }) {
   const guestState = useRef(newGuestState());
-  const [catalog, setCatalog] = useState<Content[]>([]),
+  const [personal, setPersonal] = useState(readPersonalFlashcards);
+  const personalRef = useRef(personal);
+  const [sharedCatalog, setCatalog] = useState<Content[]>([]),
     [preferences, updatePreferences] = useState<Preferences>({
       name: "Alex",
       trackId: "track-ai",
@@ -42,7 +56,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       saved: [],
       onboarded: false,
     }),
-    [progress, setProgress] = useState<Progress>({
+    [storedProgress, setProgress] = useState<Progress>({
       completed: [],
       reviews: [],
     }),
@@ -54,6 +68,36 @@ export function AppProvider({ children }: { children: ReactNode }) {
     [loading, setLoading] = useState(true),
     [error, setError] = useState("");
   const guest = session.role === "ANONYMOUS" && !session.demo;
+  const catalog = useMemo(
+    () => personalCatalog(sharedCatalog, personal),
+    [sharedCatalog, personal],
+  );
+  const progress = useMemo(
+    () => personalProgress(storedProgress, personal, catalog),
+    [storedProgress, personal, catalog],
+  );
+  const commitPersonal = (next: PersonalFlashcards) => {
+    writePersonalFlashcards(next);
+    personalRef.current = next;
+    setPersonal(next);
+  };
+  const saveFlashcard = async (draft: Content) => {
+    const entry = preparePersonalFlashcard(
+      draft,
+      sharedCatalog,
+      personalRef.current,
+    );
+    commitPersonal({
+      ...personalRef.current,
+      cards: [
+        ...personalRef.current.cards.filter(
+          (x) => x.content.id !== entry.content.id,
+        ),
+        entry,
+      ],
+    });
+    return entry.content;
+  };
   const commitGuest = (next: GuestState) => {
     writeGuest(next);
     guestState.current = next;
@@ -80,6 +124,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         : { ...p, trackId: c.find((x) => x.kind === "TRACK")?.id || "" };
       updatePreferences(normalized);
       setProgress(r);
+      const personalState = readPersonalFlashcards();
+      personalRef.current = personalState;
+      setPersonal(personalState);
       if (browserGuest)
         guestState.current = { preferences: normalized, progress: r };
       setError("");
@@ -135,6 +182,21 @@ export function AppProvider({ children }: { children: ReactNode }) {
     await refresh();
   };
   const review = async (id: string, rating: number) => {
+    if (personalRef.current.cards.some((x) => x.content.id === id)) {
+      if (!catalog.some((x) => x.kind === "FLASHCARD" && x.id === id))
+        throw new Error("This flashcard is no longer available.");
+      const updated = reviewGuest(progress, id, rating).reviews.find(
+        (x) => x.cardId === id,
+      )!;
+      commitPersonal({
+        ...personalRef.current,
+        reviews: [
+          ...personalRef.current.reviews.filter((x) => x.cardId !== id),
+          updated,
+        ],
+      });
+      return;
+    }
     if (guest) {
       commitGuest({
         ...guestState.current,
@@ -164,6 +226,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         save,
         switchRole,
         review,
+        personalCards: personal.cards,
+        saveFlashcard,
       }}
     >
       {children}

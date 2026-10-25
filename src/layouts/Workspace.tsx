@@ -85,9 +85,7 @@ export function Workspace() {
           <span className="brand-mark">
             D<span>↗</span>
           </span>
-          <span>
-            Devopsx<span className="brand-domain">.si</span>
-          </span>
+          <span>Devopsx</span>
         </Link>
         <button
           className="mobile-close"
@@ -143,7 +141,12 @@ export function Workspace() {
               Admin portal
             </NavLink>
           </nav>
-          <div className="sidebar-user">
+          <NavLink
+            to="/profile"
+            className="sidebar-user"
+            aria-label="View your profile"
+            onClick={() => setOpen(false)}
+          >
             <span className="avatar">
               {preferences.name.charAt(0).toUpperCase()}
             </span>
@@ -156,7 +159,7 @@ export function Workspace() {
               </small>
             </div>
             <Badge tone="neutral">{guest ? "Guest" : "Demo"}</Badge>
-          </div>
+          </NavLink>
         </div>
       </aside>
       <div className="workspace">
@@ -183,7 +186,14 @@ export function Workspace() {
               <Badge tone="neutral">
                 {guest ? "Guest demo" : "Demo workspace"}
               </Badge>
-              <span className="avatar small">{preferences.name.charAt(0)}</span>
+              <Link
+                to="/profile"
+                className="avatar small profile-avatar"
+                aria-label={`Open profile for ${preferences.name}`}
+                title="Your profile"
+              >
+                {preferences.name.charAt(0).toUpperCase()}
+              </Link>
             </>
           )}
         </header>
@@ -210,7 +220,7 @@ export function Workspace() {
           )}
         </main>
         <footer className={focus ? "hidden" : ""}>
-          Devopsx.si <span>Built for engineers. Designed for learning.</span>
+          Devopsx <span>Built for engineers. Designed for learning.</span>
         </footer>
       </div>
     </div>
